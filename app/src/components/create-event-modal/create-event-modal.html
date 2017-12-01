@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Create Event
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Title</ion-label>
+        <ion-input type="text" text-right [(ngModel)]="event.title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Start Time</ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY HH:mm A" pickerFormat="MMM DD YYYY h mm A" [(ngModel)]="event.startTime"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>System</ion-label>
+        <ion-select [(ngModel)]="event.system">
+          <ion-option value="pc">PC</ion-option>
+          <ion-option value="xbox">Xbox</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select [(ngModel)]="event.category">
+          <ion-option [value]="category" *ngFor="let category of categories">{{category.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Subcategory</ion-label>
+        <ion-select [(ngModel)]="event.subcategory">
+            <ion-option [value]="subcategory" *ngFor="let subcategory of (event.category)?.subcategories">{{subcategory.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button full (click)="createEvent(event)">CREATE</button>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-card>
+  <ion-card-header>
+    <ion-item>
+      <h2 text-center>{{event.title}}</h2>
+    </ion-item>
+    <ion-item>
+      <div item-start>
+          <h3 text-left>
+            {{ event.category }}
+          </h3>
+          <h5 text-left>
+            {{ event.subcategory }}
+          </h5>
+      </div>
+      <div>
+          <h3 text-center>
+              {{event.startTime | date:'M/d/yy, h:mm a'}}
+          </h3>
+          <h5 text-center>
+              {{ event.dhrmin }}
+            </h5>
+      </div>
+      <div item-end>
+          <h3 text-right>{{ event.system }}</h3>
+          <h5 text-right>{{ event.participants.length }}/{{ event.slots }}</h5>
+      </div>
+    </ion-item>
+  </ion-card-header>
+</ion-card>
