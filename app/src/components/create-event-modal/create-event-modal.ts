@@ -51,7 +51,10 @@ export class CreateEventModalComponent {
   public categories;
   public event;
 
-  constructor(public viewCtrl: ViewController, public eventsProvider: EventsProvider) {
+  constructor(
+    public viewCtrl: ViewController,
+    public eventsProvider: EventsProvider
+  ) {
     this.categories = categories;
     this.event = {};
   }

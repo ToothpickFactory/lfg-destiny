@@ -12,7 +12,10 @@ export class EventsProvider {
   constructor() {}
 
   public getEvents(){
-    return evently.events.search()
+    let options = {
+      rangeStart: Date.now()
+    }
+    return evently.events.search(options)
       .then(eventsRes =>  eventsRes.map(this.transformToLFG))
   }
 
@@ -22,7 +25,9 @@ export class EventsProvider {
   }
 
   public transformToEvently (event) {
+    console.log(event.startTime)
     let date = new Date(event.startTime);
+    console.log(date)
 
     let eventlyEvent = {
       "tags": [
